@@ -1,22 +1,29 @@
-/*===== MENU SHOW =====*/
-const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId);
+const prefersReducedMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+).matches;
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("show");
-    });
-  }
-};
-showMenu("nav-toggle", "nav-menu");
+/*===== MENU SHOW =====*/
+const navToggle = document.getElementById("nav-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+function setMenuOpen(isOpen) {
+  navMenu.classList.toggle("show", isOpen);
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+  navToggle.setAttribute(
+    "aria-label",
+    isOpen ? "Close navigation menu" : "Open navigation menu"
+  );
+}
+
+navToggle.addEventListener("click", () => {
+  setMenuOpen(!navMenu.classList.contains("show"));
+});
 
 /*===== REMOVE MENU MOBILE =====*/
 const navLink = document.querySelectorAll(".nav__link");
 
 function linkAction() {
-  const navMenu = document.getElementById("nav-menu");
-  navMenu.classList.remove("show");
+  setMenuOpen(false);
 }
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
@@ -50,25 +57,26 @@ navLink.forEach((n) =>
   n.addEventListener("click", function (e) {
     e.preventDefault();
     document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
+      behavior: prefersReducedMotion ? "auto" : "smooth",
     });
     linkAction(); // close menu after clicking
   })
 );
 
 /*===== SCROLL REVEAL ANIMATION =====*/
-const sr = ScrollReveal({
-  origin: "top",
-  distance: "60px",
-  duration: 2000,
-  delay: 200,
-});
+/* The hero is left out so it is visible as soon as the page loads. */
+if (!prefersReducedMotion) {
+  const sr = ScrollReveal({
+    origin: "top",
+    distance: "60px",
+    duration: 2000,
+    delay: 200,
+  });
 
-sr.reveal(".home__data, .section-title", {});
-sr.reveal(".home__img", { delay: 400 });
-sr.reveal(".home__social-icon", { interval: 200 });
-sr.reveal(".about__text, .skills__container, .edu__container", {
-  interval: 200,
-});
-sr.reveal(".work__card", { interval: 200 });
-sr.reveal(".contact__icon", { delay: 400, interval: 200 });
+  sr.reveal(".section-title", {});
+  sr.reveal(".about__text, .skills__container, .edu__container", {
+    interval: 200,
+  });
+  sr.reveal(".work__card", { interval: 200 });
+  sr.reveal(".contact__icon", { delay: 400, interval: 200 });
+}

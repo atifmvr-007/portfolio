@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atif Muhammed | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Atif Muhammed, an AI and ML engineer working on deep learning, computer vision and data analytics."
+    />
+    <link rel="canonical" href="https://atifmvr-007.github.io/portfolio/" />
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Atif Muhammed | Portfolio" />
+    <meta
+      property="og:description"
+      content="AI and ML projects in deep learning, computer vision and data analytics."
+    />
+    <meta property="og:url" content="https://atifmvr-007.github.io/portfolio/" />
+    <meta
+      property="og:image"
+      content="https://atifmvr-007.github.io/portfolio/images/profile.jpg"
+    />
+    <meta name="twitter:card" content="summary" />
     <link rel="stylesheet" href="style.css" />
     <!-- FontAwesome for Icons -->
     <link
@@ -36,7 +54,16 @@
             </li>
           </ul>
         </div>
-        <div class="nav__toggle" id="nav-toggle">&#9776;</div>
+        <button
+          class="nav__toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="nav-menu"
+          aria-expanded="false"
+        >
+          &#9776;
+        </button>
       </nav>
     </header>
 
@@ -52,11 +79,25 @@
             AI & ML Engineer | Data Science Enthusiast & Analyst
           </h2>
 
-          <!-- Social Icons -->
-          <div class="home__social">
-            <a> </a>
-            <a> </a>
-            <a> </a>
+          <!-- Primary Actions -->
+          <div class="home__actions">
+            <a href="#projects" class="button">View Projects</a>
+            <a
+              href="https://drive.google.com/file/d/1ecHircvR-8upQ9T2qP8aa5H0k9j9v7Co/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button button--outline"
+            >
+              Resume
+            </a>
+            <a
+              href="https://github.com/atifmvr-007"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button button--outline"
+            >
+              GitHub
+            </a>
           </div>
         </div>
 
@@ -64,6 +105,8 @@
         <div class="home__img">
           <svg
             class="home__blob"
+            role="img"
+            aria-label="Portrait of Atif Muhammed"
             viewBox="0 0 479 467"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -172,6 +215,19 @@
     <section class="work section" id="projects">
       <h2 class="section-title">Projects</h2>
       <div class="work__container bd-grid">
+        <!-- Featured private project -->
+        <div class="work__card">
+          <h3>🏘️ Kinfold: Community Management Platform</h3>
+          <p>Next.js, TypeScript, FastAPI, PostgreSQL (2026)</p>
+          <p class="work__summary">
+            Replaces paper registers and receipt books for 1,500+ households,
+            with member records, fee tracking and role-based access.
+          </p>
+          <span class="work__private">
+            <i class="fas fa-lock" aria-hidden="true"></i> Private repository
+          </span>
+        </div>
+
         <!-- 1. Brain Tumor Detection -->
         <a
           href="https://github.com/atifmvr-007/Brain-Tumor-Detection-and-Classification-using-Swin-Transformer-Attention-U-net-with-Gradcam"
@@ -221,23 +277,27 @@
         <a
           href="mailto:atifmvr@gmail.com"
           class="contact__icon"
-          target="_blank"
+          aria-label="Email Atif Muhammed"
         >
-          <i class="fas fa-envelope"></i>
+          <i class="fas fa-envelope" aria-hidden="true"></i>
         </a>
         <a
           href="https://github.com/atifmvr-007"
           class="contact__icon"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Atif Muhammed on GitHub"
         >
-          <i class="fab fa-github"></i>
+          <i class="fab fa-github" aria-hidden="true"></i>
         </a>
         <a
           href="https://www.linkedin.com/in/atif-muhammed-16126b27b/"
           class="contact__icon"
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Atif Muhammed on LinkedIn"
         >
-          <i class="fab fa-linkedin"></i>
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
         </a>
       </div>
     </section>
